@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"io.saul.martin.interview.wordcount","l":"Launcher"},{"p":"io.saul.martin.interview.wordcount.parser","l":"Parser"}]
