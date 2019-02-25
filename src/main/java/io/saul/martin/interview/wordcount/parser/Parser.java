@@ -68,6 +68,7 @@ public final class Parser {
 		return this;
 	}
 
+
 	/**
 	 * Navigates through the map keySet and generates a CSV file with the word count for the specified file.
 	 *
@@ -83,5 +84,15 @@ public final class Parser {
 		}
 
 		writer.close();
+	}
+
+
+	/**
+	 * This method is exclusively used by tests to ensure files are parsed successfully.
+	 *
+	 * @return Returns current word count map.
+	 */
+	TreeMap<String, Integer> getMap() {
+		return map;
 	}
 }
