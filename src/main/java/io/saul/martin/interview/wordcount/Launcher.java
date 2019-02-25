@@ -19,14 +19,18 @@ public class Launcher {
 	public static void main(String[] fileList){
 		Logger logger = LoggerFactory.getLogger(Launcher.class);
 
-		for(String file: fileList){
-			try {
-				logger.info(MessageFormat.format("Parsing file: {0}", file));
-				Parser parser = new Parser(file);
-				parser.loadFile().writeResult();
-				logger.info(MessageFormat.format("Successfully parsed and generated report on file: {0}", file));
-			} catch (IOException e) {
-				logger.error(MessageFormat.format("Failed to parse file: %s%n", file), e);
+		if(fileList.length == 0){
+			logger.warn("Warning: No input files provided. Please list paths to files you'd like to process as parameters.");
+		} else {
+			for (String file : fileList) {
+				try {
+					logger.info(MessageFormat.format("Parsing file: {0}", file));
+					Parser parser = new Parser(file);
+					parser.loadFile().writeResult();
+					logger.info(MessageFormat.format("Successfully parsed and generated report on file: {0}", file));
+				} catch (IOException e) {
+					logger.error(MessageFormat.format("Failed to parse file: %s%n", file), e);
+				}
 			}
 		}
 	}
